@@ -19,7 +19,7 @@ fileInput.addEventListener('change', function(e) {
         capturedFiles = [this.files[0]]; // Add only the first selected file
     } else {
         capturedFiles = this.files;
-    } console.log(capturedFiles);
+    }
 
     let k = 0;
     for(i=0; i<capturedFiles.length; i++) {
