@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPFS Uploader</title>
+  <title>IPFS Uploader</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body style="align-content: center;">
+<body>
 
-    <label for="type">Upload Type : </label>
-    <select id="type" name="types">
-      <option value="file">File</option>
-      <option value="directory">Directory</option>
-    </select>
-    <br><br>
+<div class="container-fluid p-2 bg-primary text-white text-center">
+  <h1>IPFS Uploader</h1>
+  <p>Node : ipfs.infura.io:5001</p> 
+</div>
+  
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-md-9 offset-md-3">
+			<div class="form-group row">
+				<div class="col-md-3"><h4>Upload Type : </h4></div>
+				<div class="col-md-4">
+					<select id="type" name="types">
+						<option value="file">File</option>
+						<option value="directory">Directory</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row mt-4">
+				<div class="col-sm-8">
+					<div class="custom-file mb-3">
+					<input type="file" class="custom-file-input" id="file-input" name="filename">
+					<label class="custom-file-label" for="file-input">Choose file</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row mt-5">
+				<div class="col-md-9 offset-md-3">
+					<button id="upload" class="btn btn-lg btn-primary">Upload</button>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 offset-md-3">
+			<label for="list">Uploaded Files : </label>
+					<ol id="list"></ol>
+		</div>
+	</div>
+</div>
 
-    <input type="file" id="file-input">
-    <br><br>
-
-    <button id="upload">Upload</button>
-    <br><br>
-    
-    <label for="list">Uploaded Files : </label>
-    <ol id="list"></ol>
-
-    <!-- Script File -->
-    <script src="inf.js"></script>
+<script src="inf.js"></script>
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+	var fileName = $(this).val().split("\\").pop();
+	$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+	
+	const type = document.getElementById("type");
+	let inp = type.value;
+	if(inp == "directory") {
+		$(this).siblings(".custom-file-label").addClass("selected").html("folder");
+	}
+  
+});
+</script>
 </body>
 </html>
