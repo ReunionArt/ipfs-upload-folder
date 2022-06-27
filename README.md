@@ -5,4 +5,4 @@ ipfs uploader file or folder
 ![Screenshoot](https://raw.githubusercontent.com/khakimsetia/ipfs-upload-folder/master/screenshoot/1.jpg)
 
 # Demo
-site : 🔖[RIC IPFS uploader]([https://upload-ipfs.netlify.app/](https://bejewelled-praline-d42cb0.netlify.app/))
+site : 🔖[RIC IPFS uploader](https://bejewelled-praline-d42cb0.netlify.app/)
